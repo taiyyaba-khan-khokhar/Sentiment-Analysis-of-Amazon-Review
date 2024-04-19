@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        h1 {
+            margin-bottom: 50px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #61dafb;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #bbebfa;
+        }
+        .result {
+            margin-top: 50px;
+            color: #61dafb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis of Amazon Reviews</h1>
+    <form action="/predict" method="post">
+        <input type="text" id="review" name="review" placeholder="Enter a review" required>
+        <input type="submit" value="Analyze">
+    </form>
+    {% if prediction_text %}
+    <div class="result">
+        <h2>{{ prediction_text }}</h2>
+    </div>
+    {% endif %}
+</body>
+</html>
+
+
